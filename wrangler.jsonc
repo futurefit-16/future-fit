@@ -13,5 +13,8 @@
       "binding": "WORKER_SELF_REFERENCE",
       "service": "future-fit"
     }
-  ]
+  ],
+  "images": {
+    "binding": "IMAGES"
+  }
 }

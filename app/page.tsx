@@ -11,6 +11,7 @@ export const metadata: Metadata = {
   title: "Future Fit | Heavyweight Streetwear India",
   description: "Experience India's premier heavyweight streetwear. Shop 240 GSM oversized tees and 320 GSM hoodies with our built-in AI Fit Finder for the perfect boxy fit.",
   keywords: "heavyweight streetwear India, 240 GSM oversized tee, boxy fit t-shirts, premium streetwear Bangalore, AI size finder",
+  alternates: { canonical: "/" },
   openGraph: {
     title: "Future Fit | Heavyweight Streetwear India",
     description: "Experience India's premier heavyweight streetwear. Shop 240 GSM oversized tees and 320 GSM hoodies with our built-in AI Fit Finder for the perfect boxy fit.",

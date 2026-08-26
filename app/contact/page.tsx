@@ -4,6 +4,7 @@ export const metadata: Metadata = {
     title: "Contact Us — Customer Support & Partnerships",
     description:
         "Get in touch with Future Fit. Customer support, press inquiries, and partnership opportunities.",
+    alternates: { canonical: "/contact" },
     openGraph: {
         title: "Contact Us — Future Fit",
         description: "Get in touch with Future Fit for support or partnerships.",

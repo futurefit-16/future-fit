@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
     title: "Refund & Cancellation Policy — Future Fit",
     description: "Future Fit refund and cancellation policy. Easy returns within 7 days, hassle-free refunds.",
+    alternates: { canonical: "/refund-policy" },
 };
 
 export default function RefundPolicyPage() {

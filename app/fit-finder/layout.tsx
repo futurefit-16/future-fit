@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "AI Fit Finder | Future Fit — Find Your Perfect Size",
   description: "Answer 3 questions and our AI recommends your exact size. Built for Future Fit's oversized drop-shoulder heavyweight streetwear.",
+  alternates: { canonical: "/fit-finder" },
   openGraph: {
     title: "AI Fit Finder | Future Fit — Find Your Perfect Size",
     description: "Answer 3 questions and our AI recommends your exact size. Built for Future Fit's oversized drop-shoulder heavyweight streetwear.",

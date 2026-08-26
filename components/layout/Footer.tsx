@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { Mail, MapPin, Clock, Instagram, Twitter, Linkedin } from "lucide-react";
 
 export default function Footer() {
@@ -7,9 +8,16 @@ export default function Footer() {
             <div className="container mx-auto px-4 py-14 md:px-8">
                 <div className="grid gap-8 md:grid-cols-5">
                     <div className="md:col-span-2">
-                        <Link href="/" className="font-black text-xl tracking-tighter">F\F</Link>
-                        <p className="mt-3 text-sm text-muted-foreground">Wear the future.</p>
-                        <div className="mt-4 space-y-2 text-xs text-muted-foreground">
+                        <Link href="/" className="inline-block" aria-label="Future Fit — home">
+                            <Image
+                                src="/logo-white.png"
+                                alt="Future Fit — Wear the Future"
+                                width={919}
+                                height={438}
+                                className="h-16 w-auto"
+                            />
+                        </Link>
+                        <div className="mt-5 space-y-2 text-xs text-muted-foreground">
                             <p className="flex items-center gap-2">
                                 <Mail size={12} />
                                 <a href="mailto:hello@wearfuturefit.com" className="hover:text-foreground transition-colors">hello@wearfuturefit.com</a>
@@ -40,6 +48,7 @@ export default function Footer() {
                             <li><Link href="/about" className="hover:text-foreground transition-colors">About Us</Link></li>
                             <li><Link href="/studio" className="hover:text-foreground transition-colors">Studio</Link></li>
                             <li><Link href="/careers" className="hover:text-foreground transition-colors">Careers</Link></li>
+                            <li><Link href="/faq" className="hover:text-foreground transition-colors">FAQ</Link></li>
                             <li><Link href="/contact" className="hover:text-foreground transition-colors">Contact Us</Link></li>
                         </ul>
                     </div>

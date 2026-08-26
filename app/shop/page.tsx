@@ -11,6 +11,7 @@ import PricingDisplay from "@/components/product/PricingDisplay";
 export const metadata: Metadata = {
     title: "Shop | Future Fit Heavyweight Streetwear",
     description: "Shop 240 GSM oversized tees, 320 GSM French Terry hoodies and essentials. Bio-washed & pre-shrunk. Ships across India.",
+    alternates: { canonical: "/shop" },
     openGraph: {
         title: "Shop | Future Fit Heavyweight Streetwear",
         description: "Shop 240 GSM oversized tees, 320 GSM French Terry hoodies and essentials. Bio-washed & pre-shrunk. Ships across India.",

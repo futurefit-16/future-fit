@@ -1,5 +1,18 @@
 import Link from "next/link";
 import { ArrowRight, CheckCircle, Zap, Users, Package, TrendingUp } from "lucide-react";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Affiliate Program — Earn With Future Fit",
+  description:
+    "Join the Future Fit affiliate program. Share heavyweight streetwear with your audience and earn commission on every order.",
+  alternates: { canonical: "/affiliates" },
+  openGraph: {
+    title: "Affiliate Program — Future Fit",
+    description:
+      "Share heavyweight streetwear with your audience and earn commission on every order.",
+  },
+};
 
 export default function AffiliatesPage() {
   return (

@@ -1,11 +1,9 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
-import { GoogleAnalytics } from "@next/third-parties/google";
-import Script from "next/script";
 import "./globals.css";
 import RootLayoutClient from "@/components/layout/RootLayoutClient";
 import ClientEffects from "@/components/layout/ClientEffects";
-import Clarity from "@/components/Clarity";
+import ConsentGate from "@/components/consent/ConsentGate";
 import LazyFeatureLoader from "@/components/performance/LazyFeatureLoader";
 import BreadcrumbSchema from "@/components/seo/BreadcrumbSchema";
 import "@/lib/env-validation";
@@ -70,10 +68,7 @@ export const metadata: Metadata = {
       "max-snippet": -1,
     },
   },
-  alternates: { canonical: SITE_URL },
 };
-
-const GA_ID = process.env.NEXT_PUBLIC_GA_ID;
 
 export default function RootLayout({
   children,
@@ -91,6 +86,7 @@ export default function RootLayout({
               "@type": "Organization",
               "name": "Future Fit",
               "url": "https://wearfuturefit.com",
+              "logo": "https://wearfuturefit.com/logo.png",
               "description": "Future Fit is a premium AI-powered streetwear brand based in Bengaluru, India, specializing in heavyweight artifacts and tech-driven fashion.",
               "sameAs": [
                 "https://www.instagram.com/wearfuturefit/",
@@ -125,26 +121,9 @@ export default function RootLayout({
         </RootLayoutClient>
       {/* AI Style Advisor - Site Wide */}
         <LazyFeatureLoader feature="ai-advisor" />
+        {/* Analytics and affiliate tracking, gated behind consent */}
+        <ConsentGate />
       </body>
-      {GA_ID && <GoogleAnalytics gaId={GA_ID} />}
-      {/* Microsoft Clarity Analytics */}
-      <Clarity />
-      {/* GoAffPro Tracking */}
-      <Script
-        id="goaffpro-script"
-        strategy="afterInteractive"
-        dangerouslySetInnerHTML={{
-          __html: `
-            (function(w,d,s,o,f,js,fjs){
-              w['GoAffProObject']=o;w[o]=w[o]||function(){
-              (w[o].q=w[o].q||[]).push(arguments)};w[o].l=1*new Date();
-              js=d.createElement(s),fjs=d.getElementsByTagName(s)[0];
-              js.async=1;js.src=f;fjs.parentNode.insertBefore(js,fjs);
-            })(window,document,'script','goaffpro','https://cdn.goaffpro.com/goaffpro.js');
-            goaffpro('init', 'future-fit');
-          `,
-        }}
-      />
     </html>
   );
 }

@@ -4,6 +4,7 @@ import Link from "next/link";
 export const metadata: Metadata = {
     title: "Terms & Conditions — Future Fit",
     description: "Terms and conditions for using wearfuturefit.com. Read before placing your order.",
+    alternates: { canonical: "/terms" },
 };
 
 export default function TermsPage() {

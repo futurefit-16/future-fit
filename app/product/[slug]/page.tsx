@@ -16,6 +16,7 @@ export async function generateMetadata({
     return {
         title: `${product.name} — ${formatPrice(product.price)}`,
         description: product.description,
+        alternates: { canonical: `/product/${slug}` },
         openGraph: {
             title: `${product.name} — Future Fit`,
             description: product.description,

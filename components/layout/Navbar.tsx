@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { ShoppingBag, Menu, User, X, Instagram } from "lucide-react";
 import { useCart } from "@/components/cart/CartContext";
 import { useSyncExternalStore } from "react";
@@ -78,8 +79,32 @@ export default function Navbar() {
                     : 'bg-background/60 backdrop-blur-xl border-b border-border/50'
             }`}>
                 <div className="flex items-center gap-4 md:gap-8 min-w-0">
-                    <Link href="/" className="font-black text-lg sm:text-xl tracking-tighter shrink-0">
-                        F\F
+                    <Link
+                        href="/"
+                        className="shrink-0 flex flex-col items-center leading-none"
+                        aria-label="Future Fit — wear the future — home"
+                    >
+                        <Image
+                            src="/logo-wordmark-white.png"
+                            alt="Future Fit"
+                            width={919}
+                            height={280}
+                            priority
+                            className="h-6 sm:h-7 w-auto"
+                        />
+                        {/* Tagline and rule are live text/CSS, not part of the logo
+                            bitmap: at this size the lockup's own tagline would be
+                            ~3px tall. */}
+                        <span
+                            aria-hidden="true"
+                            className="mt-1 text-[7px] sm:text-[8px] uppercase tracking-[0.18em] text-white/55"
+                        >
+                            Wear the future
+                        </span>
+                        <span
+                            aria-hidden="true"
+                            className="mt-1 h-[1.5px] w-4 rounded-full bg-white/55"
+                        />
                     </Link>
                     <div className="hidden md:flex items-center gap-6 text-sm font-medium text-muted-foreground">
                         {NAV_LINKS.map((link) => (
@@ -136,7 +161,25 @@ export default function Navbar() {
                     <div className="absolute inset-0 bg-black/60 backdrop-blur-sm" onClick={() => setMobileOpen(false)} />
                     <div className="absolute top-0 right-0 h-full w-72 max-w-[85vw] bg-background border-l border-border flex flex-col animate-in slide-in-from-right duration-200">
                         <div className="flex items-center justify-between p-4 border-b border-border">
-                            <span className="font-black text-lg tracking-tighter">F\F</span>
+                            <span className="flex flex-col items-center leading-none">
+                                <Image
+                                    src="/logo-wordmark-white.png"
+                                    alt="Future Fit"
+                                    width={919}
+                                    height={280}
+                                    className="h-6 w-auto"
+                                />
+                                <span
+                                    aria-hidden="true"
+                                    className="mt-1 text-[7px] uppercase tracking-[0.18em] text-white/55"
+                                >
+                                    Wear the future
+                                </span>
+                                <span
+                                    aria-hidden="true"
+                                    className="mt-1 h-[1.5px] w-4 rounded-full bg-white/55"
+                                />
+                            </span>
                             <button onClick={() => setMobileOpen(false)} className="p-2 hover:bg-muted rounded-full transition-colors" aria-label="Close menu">
                                 <X size={20} />
                             </button>

@@ -11,6 +11,7 @@ export const metadata: Metadata = {
     title: "Design Studio — Customize Your Gear",
     description:
         "Use the Future Fit AI-powered design studio to customize tees, hoodies & apparel. Add graphics, text, and export your unique designs.",
+    alternates: { canonical: "/studio" },
     openGraph: {
         title: "Design Studio — Future Fit",
         description: "Customize your streetwear with AI-powered design tools.",

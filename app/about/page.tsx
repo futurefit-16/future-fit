@@ -5,6 +5,7 @@ import { MapPin, Instagram, Linkedin, Mail, Phone } from "lucide-react";
 export const metadata: Metadata = {
   title: "About Us | Future Fit",
   description: "Future Fit is a premium AI-powered streetwear brand based in Bengaluru, India, specializing in heavyweight artifacts and tech-driven fashion.",
+  alternates: { canonical: "/about" },
   openGraph: {
     title: "About Future Fit | Premium AI Streetwear",
     description: "Future Fit is a premium AI-powered streetwear brand based in Bengaluru, India, specializing in heavyweight artifacts and tech-driven fashion.",

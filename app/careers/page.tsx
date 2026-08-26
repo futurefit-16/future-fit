@@ -5,6 +5,7 @@ export const metadata: Metadata = {
     title: "Careers — Join the Future of Fashion Tech",
     description:
         "Join Future Fit and build the next generation of AI-powered fashion. We are hiring soon.",
+    alternates: { canonical: "/careers" },
     openGraph: {
         title: "Careers — Future Fit",
         description: "Build the next generation of AI-powered fashion with us.",

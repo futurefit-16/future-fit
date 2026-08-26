@@ -6,6 +6,7 @@ export const metadata: Metadata = {
     title: "Collections — Oversized Tees, Round Neck Tees & Hoodies",
     description:
         "Explore Future Fit collections. Premium oversized tees, classic round neck tees, and cozy hoodies.",
+    alternates: { canonical: "/collections" },
     openGraph: {
         title: "Collections — Future Fit",
         description: "Explore premium oversized tees, round neck tees, and hoodies.",
