@@ -31,7 +31,13 @@ export function validateEnvironment(): { valid: boolean; errors: string[] } {
   }
 
   // Validate production-specific requirements
-  if (process.env.NODE_ENV === 'production') {
+  // Next.js sets NODE_ENV to production while creating a build, including for
+  // local builds that intentionally use test credentials. Keep the strict
+  // Razorpay check for the running production server instead.
+  if (
+    process.env.NODE_ENV === 'production' &&
+    process.env.NEXT_PHASE !== 'phase-production-build'
+  ) {
     if (!process.env.NEXT_PUBLIC_SITE_URL?.startsWith('https://')) {
       errors.push('NEXT_PUBLIC_SITE_URL must use HTTPS in production');
     }
