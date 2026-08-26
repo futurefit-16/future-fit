@@ -23,6 +23,9 @@ node_modules/
 # next.js
 /.next/
 /out/
+.open-next/
+.wrangler/
+.dev.vars
 
 # production
 /build

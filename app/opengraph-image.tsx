@@ -1,6 +1,5 @@
 import { ImageResponse } from "next/og";
 
-export const runtime = "edge";
 export const alt = "Future Fit — AI-Powered Streetwear";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
