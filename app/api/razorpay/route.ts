@@ -74,14 +74,26 @@ export async function POST(req: NextRequest) {
             );
         }
         
-        const { amount, currency = "INR", receipt } = validationResult.data;
+        const { amount, currency = "INR", receipt, items } = validationResult.data;
 
         const razorpay = new Razorpay({ key_id, key_secret });
+
+        const notes: Record<string, string> = {};
+        if (items?.length) {
+            // Razorpay notes values are strings (max 256 chars each).
+            notes.items = JSON.stringify(
+                items.map((item) => ({
+                    slug: item.slug,
+                    quantity: item.quantity,
+                })),
+            );
+        }
 
         const order = await razorpay.orders.create({
             amount: Math.round(amount * 100), // Razorpay expects paise
             currency,
             receipt: receipt || `rcpt_${Date.now()}`,
+            ...(Object.keys(notes).length > 0 ? { notes } : {}),
         });
 
         return NextResponse.json({

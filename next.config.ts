@@ -3,11 +3,11 @@ import { initOpenNextCloudflareForDev } from "@opennextjs/cloudflare";
 
 const csp = [
   "default-src 'self'",
-  "script-src 'self' 'unsafe-eval' 'unsafe-inline' https://checkout.razorpay.com https://cdn.goaffpro.com https://www.google-analytics.com",
+  "script-src 'self' 'unsafe-eval' 'unsafe-inline' https://checkout.razorpay.com https://cdn.goaffpro.com https://www.google-analytics.com https://connect.facebook.net",
   "style-src 'self' 'unsafe-inline'",
   "img-src 'self' data: https: blob:",
   "font-src 'self'",
-  "connect-src 'self' https://api.razorpay.com https://www.google-analytics.com https://klxaevflqknhfkiwpkne.supabase.co",
+  "connect-src 'self' https://api.razorpay.com https://www.google-analytics.com https://klxaevflqknhfkiwpkne.supabase.co https://www.facebook.com https://connect.facebook.net",
   "frame-src 'self' https://checkout.razorpay.com",
   "object-src 'none'",
   "base-uri 'self'",

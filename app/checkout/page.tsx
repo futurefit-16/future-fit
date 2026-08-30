@@ -6,7 +6,6 @@ import Script from "next/script";
 import { CheckCircle, ShoppingBag, ArrowLeft, AlertTriangle } from "lucide-react";
 import { useCart } from "@/components/cart/CartContext";
 import { formatCurrency } from "@/lib/utils";
-import { updateStockAfterPurchase } from "@/lib/actions/inventory";
 import { SecurityValidator } from "@/lib/security";
 import { useState, useMemo, useEffect } from "react";
 
@@ -91,10 +90,15 @@ export default function CheckoutPage() {
                 return; 
             }
 
+            const orderItems = items.map((item) => ({
+                slug: item.slug,
+                quantity: item.quantity,
+            }));
+
             const res = await fetch("/api/razorpay", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({ amount: total }),
+                body: JSON.stringify({ amount: total, items: orderItems }),
             });
             const data = await res.json();
 
@@ -123,18 +127,18 @@ export default function CheckoutPage() {
                         const verifyRes = await fetch("/api/razorpay/verify", {
                             method: "POST",
                             headers: { "Content-Type": "application/json" },
-                            body: JSON.stringify(response),
+                            body: JSON.stringify({
+                                ...response,
+                                items: items.map((item) => ({
+                                    slug: item.slug,
+                                    quantity: item.quantity,
+                                })),
+                            }),
                         });
                         const verifyData = await verifyRes.json();
                         if (verifyData.verified) {
                             setPaymentId(verifyData.paymentId);
-                            
-                            // Decrement stock for each purchased item
-                            for (const item of items) {
-                                const slug = item.id.replace(/^.*:/, ""); // Remove any prefix if present
-                                await updateStockAfterPurchase(slug, 1);
-                            }
-                            
+
                             // Store order details for PartnerStack tracking
                             if (typeof window !== "undefined") {
                                 sessionStorage.setItem("future_fit_order", JSON.stringify({

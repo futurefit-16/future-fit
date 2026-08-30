@@ -5,6 +5,7 @@ import Link from "next/link";
 import Script from "next/script";
 import { GoogleAnalytics } from "@next/third-parties/google";
 import Clarity from "@/components/Clarity";
+import MetaPixel from "@/components/MetaPixel";
 
 const STORAGE_KEY = "ff-cookie-consent";
 
@@ -47,6 +48,7 @@ export default function ConsentGate() {
             <>
                 {GA_ID && <GoogleAnalytics gaId={GA_ID} />}
                 <Clarity />
+                <MetaPixel />
                 <Script
                     id="goaffpro-script"
                     strategy="afterInteractive"

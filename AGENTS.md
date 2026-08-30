@@ -46,7 +46,7 @@ app/                    routes; policy pages, shop, product/[slug], studio, faq
   not-found.tsx         custom 404
   robots.ts sitemap.ts  both use `export const dynamic = "force-static"`
 components/
-  consent/ConsentGate   cookie banner; gates GA, Clarity, GoAffPro
+  consent/ConsentGate   cookie banner; gates GA, Clarity, Meta Pixel, GoAffPro
   cart/CartContext      client-side cart state
   studio/               fabric.js design canvas
   3d/ fitting/ sizing/  three.js / webcam features
@@ -125,7 +125,8 @@ Required: `NEXT_PUBLIC_SITE_URL`, `NEXT_PUBLIC_SUPABASE_URL`,
 
 Optional: `SUPABASE_SERVICE_ROLE_KEY`, `RAZORPAY_WEBHOOK_SECRET`,
 `GROQ_API_KEY`, `SMS_API_KEY`, `EMAIL_API_KEY`, `TWILIO_*`,
-`NEXT_PUBLIC_GA_ID`, `NEXT_PUBLIC_CLARITY_PROJECT_ID`.
+`NEXT_PUBLIC_GA_ID`, `NEXT_PUBLIC_CLARITY_PROJECT_ID`,
+`NEXT_PUBLIC_META_PIXEL_ID` (defaults to `1642148160846953` if unset).
 
 `lib/env-validation.ts` warns in dev and throws in production. `.dev.vars`
 holds `NEXTJS_ENV=development` and is read during local OpenNext builds, so
@@ -172,3 +173,13 @@ cookie consent, FAQ with `FAQPage` JSON-LD, Cloudflare image optimization
 Outstanding: end-to-end form/payment testing, GA and Clarity IDs not set in
 any environment, accessibility pass (roughly 15 aria attributes site-wide, no
 skip link), broken-link sweep beyond the footer.
+
+<!-- BEGIN:nextjs-agent-rules -->
+
+# This is NOT the Next.js you know
+
+This version has breaking changes — APIs, conventions, and file structure may all differ from your training data. Read the relevant guide in `node_modules/next/dist/docs/` (resolved from this file's directory; in monorepos the `next` package may not be visible from the repo root) before writing any code. Heed deprecation notices.
+
+This block is written and re-added by `next dev` — verify at `node_modules/next/dist/server/lib/generate-agent-files.js`. Removing it from a diff only re-creates the uncommitted change; committing it with your work keeps the tree clean.
+
+<!-- END:nextjs-agent-rules -->

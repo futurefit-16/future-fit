@@ -42,6 +42,17 @@ export const RazorpayOrderSchema = z.object({
   receipt: z.string()
     .max(50, "Receipt too long")
     .optional(),
+
+  // Line items attached as Razorpay order notes for webhook fulfillment.
+  items: z
+    .array(
+      z.object({
+        slug: z.string().min(1).max(100),
+        quantity: z.number().int().positive().max(50),
+      }),
+    )
+    .max(20)
+    .optional(),
 });
 
 // Razorpay webhook validation schema
