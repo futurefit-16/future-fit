@@ -4,6 +4,8 @@
   "name": "future-fit",
   "compatibility_date": "2025-03-01",
   "compatibility_flags": ["nodejs_compat", "global_fetch_strictly_public"],
+  // Keep dashboard/env vars on deploy — without this, wrangler wipes them and the site 500s.
+  "keep_vars": true,
   "assets": {
     "directory": ".open-next/assets",
     "binding": "ASSETS"
